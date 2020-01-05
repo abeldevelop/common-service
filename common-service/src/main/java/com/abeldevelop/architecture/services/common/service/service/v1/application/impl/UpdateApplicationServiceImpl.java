@@ -36,7 +36,7 @@ public class UpdateApplicationServiceImpl implements UpdateApplicationService {
     }
 	
     private ApplicationEntity checkIfApplicationExist(Application application) {
-        return applicationRepository.executeFindByCode(application.getCode()).orElseThrow(() -> new ApplicationNotFoundException(errorCodesProperties.getApplicationCodeExist(), Arrays.asList(application.getCode())));
+        return applicationRepository.executeFindByCode(application.getCode()).orElseThrow(() -> new ApplicationNotFoundException(errorCodesProperties.getApplicationCodeNotExist(), Arrays.asList(application.getCode())));
     }
     
     private void checkIfNewApplicationExist(Application application) {

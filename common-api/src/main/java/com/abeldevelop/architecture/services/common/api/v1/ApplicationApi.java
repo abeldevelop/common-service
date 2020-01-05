@@ -35,7 +35,6 @@ public interface ApplicationApi {
 		@ApiResponse(code = 500, response = ErrorResponseResource.class, message = SpringFoxConfiguration.API_RESPONSE_CODE_500_MESSAGE)
 	})
 	public ApplicationResponseResource executeUpdate(
-			@ApiParam(name="code", value="Code of the application", required = true, example="blog-category-service") String code,
 			@ApiParam(name="application", value="Application to updated", required = true) UpdateApplicationRequestResource updateApplicationRequestResource);
 	
 	@ApiOperation(value = "Delete a application")

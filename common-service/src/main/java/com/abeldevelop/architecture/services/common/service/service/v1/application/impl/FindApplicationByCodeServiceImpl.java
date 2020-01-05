@@ -27,7 +27,7 @@ public class FindApplicationByCodeServiceImpl implements FindApplicationByCodeSe
     @Transactional
     public Application executeFindByCode(String code) {
         ApplicationEntity applicationEntity = applicationRepository.executeFindByCode(code)
-                .orElseThrow(() -> new ApplicationNotFoundException(errorCodesProperties.getApplicationCodeExist(), Arrays.asList(code)));
+                .orElseThrow(() -> new ApplicationNotFoundException(errorCodesProperties.getApplicationCodeNotExist(), Arrays.asList(code)));
         return applicationMapper.mapEntityToDomain(applicationEntity);
     }
     

@@ -67,12 +67,12 @@ public class ApplicationApiController implements ApplicationApi {
     }
 
     @Override
-    @PutMapping("/{code}")
+    @PutMapping
     @ResponseStatus(HttpStatus.OK)
-    public ApplicationResponseResource executeUpdate(@PathVariable("code") String code, @RequestBody UpdateApplicationRequestResource updateApplicationRequestResource) {
-        log.info("executeUpdate Data IN => code:{}, updateApplicationRequestResource: {}", code, updateApplicationRequestResource);
+    public ApplicationResponseResource executeUpdate(@RequestBody UpdateApplicationRequestResource updateApplicationRequestResource) {
+        log.info("executeUpdate Data IN => updateApplicationRequestResource: {}", updateApplicationRequestResource);
         validationFactory.validate(updateApplicationRequestResource);
-        ApplicationResponseResource applicationResponseResource = applicationsMapper.mapDomainToResource(updateApplicationService.executeUpdate(code, applicationsMapper.mapResourceToDomain(updateApplicationRequestResource)));
+        ApplicationResponseResource applicationResponseResource = applicationsMapper.mapDomainToResource(updateApplicationService.executeUpdate(applicationsMapper.mapResourceToDomain(updateApplicationRequestResource)));
         log.info("executeUpdate Data OUT => applicationResponseResource: {}", applicationResponseResource);
         validationFactory.validate(applicationResponseResource);
         return applicationResponseResource;

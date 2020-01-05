@@ -33,7 +33,7 @@ public class DeleteApplicationServiceImpl implements DeleteApplicationService {
     private void checkIfApplicationExist(String code) {
         Optional<ApplicationEntity> findByCode = applicationRepository.executeFindByCode(code);
         if(!findByCode.isPresent()) {
-            throw new ApplicationNotFoundException(errorCodesProperties.getApplicationCodeExist(), Arrays.asList(code));
+            throw new ApplicationNotFoundException(errorCodesProperties.getApplicationCodeNotExist(), Arrays.asList(code));
         }
     }
 }
