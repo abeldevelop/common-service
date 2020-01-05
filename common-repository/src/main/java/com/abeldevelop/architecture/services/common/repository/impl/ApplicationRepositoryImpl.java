@@ -25,7 +25,7 @@ public class ApplicationRepositoryImpl implements ApplicationRepository {
     }
 
     @Override
-    public Optional<ApplicationEntity> executeFindById(String code) {
+    public Optional<ApplicationEntity> executeFindByCode(String code) {
         return applicationSpringDataRepository.findById(code);
     }
 
@@ -35,7 +35,7 @@ public class ApplicationRepositoryImpl implements ApplicationRepository {
     }
 
     @Override
-    public void executeDeleteById(String code) {
+    public void executeDeleteByCode(String code) {
         applicationSpringDataRepository.deleteById(code);
     }
 

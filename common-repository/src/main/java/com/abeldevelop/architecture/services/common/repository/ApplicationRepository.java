@@ -10,13 +10,13 @@ import com.abeldevelop.architecture.services.common.model.ApplicationEntity;
 
 public interface ApplicationRepository {
 
-    public ApplicationEntity executeSave(ApplicationEntity categoryEntity);
+    public ApplicationEntity executeSave(ApplicationEntity applicationEntity);
     
-    public Optional<ApplicationEntity> executeFindById(String id);
+    public Optional<ApplicationEntity> executeFindByCode(String code);
     
     public Optional<ApplicationEntity> executeFindOne(Specification<ApplicationEntity> spec);
     
-    public void executeDeleteById(String code);
+    public void executeDeleteByCode(String code);
 
     public Page<ApplicationEntity> executeFindAll(Pageable pageable);
     

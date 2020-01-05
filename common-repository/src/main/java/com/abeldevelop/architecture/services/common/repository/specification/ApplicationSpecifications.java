@@ -17,4 +17,9 @@ public class ApplicationSpecifications {
         };
     }
     
+    public Specification<ApplicationEntity> nameEquals(String query) {
+        return (root, criteriaQuery, criteriaBuilder) -> { 
+            return criteriaBuilder.equal(criteriaBuilder.upper(root.get(ApplicationEntity_.name)), query.toUpperCase());
+        };
+    }
 }
