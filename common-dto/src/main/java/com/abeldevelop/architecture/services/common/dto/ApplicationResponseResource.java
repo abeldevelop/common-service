@@ -33,7 +33,7 @@ public class ApplicationResponseResource {
     
     @ApiModelProperty(notes="Description of the applicacion", example="Service to manage the blog categories", required = true, position = 2)
     @NotNull
-    @Size(min = 3, max = 25)
+    @Size(min = 3, max = 255)
     private String description;
     
 }

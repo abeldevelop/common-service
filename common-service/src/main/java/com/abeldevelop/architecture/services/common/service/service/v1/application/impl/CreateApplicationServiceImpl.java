@@ -41,7 +41,7 @@ public class CreateApplicationServiceImpl implements CreateApplicationService {
         }
         Optional<ApplicationEntity> findByName = applicationRepository.executeFindOne(applicationSpecifications.nameEquals(application.getName()));
         if(findByName.isPresent()) {
-            throw new ApplicationExistException(errorCodesProperties.getApplicationNameExist(), Arrays.asList(application.getCode()));
+            throw new ApplicationExistException(errorCodesProperties.getApplicationNameExist(), Arrays.asList(application.getName()));
         }
     }
     

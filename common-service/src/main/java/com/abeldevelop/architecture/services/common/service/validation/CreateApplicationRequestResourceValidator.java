@@ -32,7 +32,7 @@ public class CreateApplicationRequestResourceValidator implements ValidationReso
     }
     
     private void validateCode(CreateApplicationRequestResource createApplicationRequestResource) {
-        if(createApplicationRequestResource.getCode() == null) {
+        if(createApplicationRequestResource.getCode() == null || createApplicationRequestResource.getCode().isEmpty()) {
             throw new ValidationRequestException(errorCodesProperties.getApplicationCodeNotNull());
         }
         int size = createApplicationRequestResource.getCode().length();
@@ -42,7 +42,7 @@ public class CreateApplicationRequestResourceValidator implements ValidationReso
     }
     
     private void validateName(CreateApplicationRequestResource createApplicationRequestResource) {
-        if(createApplicationRequestResource.getName() == null) {
+        if(createApplicationRequestResource.getName() == null || createApplicationRequestResource.getName().isEmpty()) {
             throw new ValidationRequestException(errorCodesProperties.getApplicationNameNotNull());
         }
         int size = createApplicationRequestResource.getName().length();
@@ -52,7 +52,7 @@ public class CreateApplicationRequestResourceValidator implements ValidationReso
     }
     
     private void validateDescription(CreateApplicationRequestResource createApplicationRequestResource) {
-        if(createApplicationRequestResource.getDescription() == null) {
+        if(createApplicationRequestResource.getDescription() == null || createApplicationRequestResource.getDescription().isEmpty()) {
             throw new ValidationRequestException(errorCodesProperties.getApplicationDescriptionNotNull());
         }
         int size = createApplicationRequestResource.getDescription().length();
