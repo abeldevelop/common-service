@@ -1,36 +1,31 @@
 package com.abeldevelop.architecture.services.common.service.service.impl;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.abeldevelop.architecture.library.common.error.DefaultErrorMessageService;
-import com.abeldevelop.architecture.services.common.service.config.ErrorCodesProperties;
 
 @Component
 public class ErrorMessageServiceImpl extends DefaultErrorMessageService {
 
-    private final ErrorCodesProperties errorCodesProperties;
-    
-    @Autowired
-    public ErrorMessageServiceImpl(ErrorCodesProperties errorCodesProperties) {
+    public ErrorMessageServiceImpl() {
         addMessagesToMap();
-        this.errorCodesProperties = errorCodesProperties;
     }
 
 	private void addMessagesToMap() {
-	    addMessage(errorCodesProperties.getPaginationMinPageError(), "The page number can not be less than {}");
-        addMessage(errorCodesProperties.getPaginationMinSizeError(), "The page size can not be less than {}");
+	    addMessage("requestFieldValueNotValid", "The value {} is not one of those available");
+	    addMessage("paginationMinPageError", "The page number can not be less than {}");
+        addMessage("paginationMinSizeError", "The page size can not be less than {}");
 	    
-	    addMessage(errorCodesProperties.getApplicationCodeExist(), "The application with code {} already exists");
-	    addMessage(errorCodesProperties.getApplicationCodeNotExist(), "No exist application with code: {}");
-	    addMessage(errorCodesProperties.getApplicationNameExist(), "The application with name {} already exists");
-	    addMessage(errorCodesProperties.getApplicationNotNull(), "The application mandatory");
-	    addMessage(errorCodesProperties.getApplicationCodeNotNull(), "The application code is mandatory");
-	    addMessage(errorCodesProperties.getApplicationCodeSize(), "The application code must be between 3 and 25 characters");
-	    addMessage(errorCodesProperties.getApplicationNameNotNull(), "The application name is mandatory");
-	    addMessage(errorCodesProperties.getApplicationNameSize(), "The application name must be between 3 and 25 characters");
-	    addMessage(errorCodesProperties.getApplicationDescriptionNotNull(), "The application description is mandatory");
-	    addMessage(errorCodesProperties.getApplicationDescriptionSize(), "The application description must be between 3 and 255 characters");
+	    addMessage("applicationCodeExist", "The application with code {} already exists");
+	    addMessage("applicationCodeNotExist", "No exist application with code: {}");
+	    addMessage("applicationNameExist", "The application with name {} already exists");
+	    addMessage("applicationNotNull", "The application mandatory");
+	    addMessage("applicationCodeNotNull", "The application code is mandatory");
+	    addMessage("applicationCodeSize", "The application code must be between 3 and 25 characters");
+	    addMessage("applicationNameNotNull", "The application name is mandatory");
+	    addMessage("applicationNameSize", "The application name must be between 3 and 25 characters");
+	    addMessage("applicationDescriptionNotNull", "The application description is mandatory");
+	    addMessage("applicationDescriptionSize", "The application description must be between 3 and 255 characters");
 	}
 }
